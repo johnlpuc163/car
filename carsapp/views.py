@@ -1,8 +1,12 @@
 from django.shortcuts import render
 
-# Create your views here.
-from django.http import HttpResponse
+from carsapp.models import Car
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    page = int(request.GET.get('page', 0))
+    limit = int(request.GET.get('limit', 20))
+    start = page * limit
+    end = start + limit
+    context = dict(cars=Car.objects.all()[start:end])
+    return render(request, 'carsapp/index.html', context)

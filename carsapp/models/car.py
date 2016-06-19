@@ -22,3 +22,11 @@ class Car(BaseModel):
     product_id = models.CharField(max_length=200, null=True)
     platform_name = models.CharField(max_length=200, null=True)
     platform = models.ForeignKey(Platform, on_delete=models.CASCADE, null=True)
+
+    @property
+    def title(self):
+        return '  '.join([str(self.year), self.make, self.model, self.trim])
+
+    @property
+    def formated_mileage(self):
+        return str(int(self.mileage/1000)) + 'k'
