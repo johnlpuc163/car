@@ -3,6 +3,8 @@ sys.path.append('./')
 from lib.config import create_app
 create_app('prod')
 
+import datetime
+
 from django.core.exceptions import ObjectDoesNotExist
 from gevent import spawn
 from gevent.queue import Queue
@@ -15,6 +17,7 @@ CRAWLERS = [VroomCrawler, BeepiCrawler]
 
 
 def run():
+    start_date = datetime.datetime.now()
     car_queue = Queue()
     crawler_finished = 0
 
@@ -30,7 +33,7 @@ def run():
         if datum is None:
             crawler_finished += 1
             if crawler_finished >= len(CRAWLERS):
-                return
+                break
             else:
                 continue
         try:
@@ -38,6 +41,8 @@ def run():
             car.update_with(**datum)
         except ObjectDoesNotExist:
             Car.save_with(**datum)
+
+    Car.objects.filter(updated_at__lt=start_date).delete()
 
 
 if __name__ == "__main__":

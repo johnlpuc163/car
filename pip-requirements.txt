@@ -1,4 +1,4 @@
 django==1.9.2
-requests[security]
-gevent
-ujson
+requests[security]==2.9.1
+gevent==1.0.1
+ujson==1.33
