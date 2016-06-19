@@ -3,9 +3,8 @@ sys.path.append('./')
 from lib.config import create_app
 create_app('prod')
 
-import datetime
-
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils import timezone
 from gevent import spawn
 from gevent.queue import Queue
 
@@ -17,7 +16,7 @@ CRAWLERS = [VroomCrawler, BeepiCrawler]
 
 
 def run():
-    start_date = datetime.datetime.now()
+    start_date = timezone.now()
     car_queue = Queue()
     crawler_finished = 0
 

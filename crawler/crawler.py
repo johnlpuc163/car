@@ -6,6 +6,9 @@ import requests
 import ujson
 
 
+requests.packages.urllib3.disable_warnings()
+
+
 class BaseCrawler():
     url = ''
     name = ''
