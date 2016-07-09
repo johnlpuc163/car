@@ -41,6 +41,8 @@ def index(request):
 def _parse_request(request):
     params = {}
     params['page'] = request.GET.get('page', '')
+    if not params['page']:
+        params['page'] = 1
     params['limit'] = request.GET.get('limit', '')
     params['year_min'] = request.GET.get('year_min', '')
     params['year_max'] = request.GET.get('year_max', '')
