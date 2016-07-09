@@ -4,23 +4,38 @@ from carsapp.models import Car
 
 
 def index(request):
-    # page = request.GET.get('page', None)
-    # page = int(page) if page else 0
-    # limit = request.GET.get('limit', None)
-    # limit = int(limit) if limit else 20
     params = _parse_request(request)
     page = (int(params['page']) - 1) if params['page'] else 0
     limit = int(params['limit']) if params['limit'] else 20
     start = page * limit
     end = start + limit
 
-    year_min = int(params['year_min']) if params['year_min'] else None
-    makes = {'benz', 'audi', 'bmw'}
+    cars = Car.objects.all()
+    print params
+    if params['make']:
+        cars = cars.filter(make=params['make'])
+        print params['make'], cars.count()
+    if params['body_type']:
+        cars = cars.filter(body_type=params['body_type'])
+    if params['year_min']:
+        cars = cars.filter(year__gte=int(params['year_min']))
+    if params['year_max']:
+        cars = cars.filter(year__lte=int(params['year_max']))
+    if params['price_min']:
+        cars = cars.filter(price__gte=int(params['price_min']))
+    if params['price_max']:
+        cars = cars.filter(price__lte=int(params['price_max']))
+    if params['mileage_min']:
+        cars = cars.filter(mileage__gte=int(params['mileage_min']))
+    if params['mileage_max']:
+        cars = cars.filter(mileage__lte=int(params['mileage_max']))
+    
     context = dict(
-        cars=Car.objects.all()[start:end],
+        cars=cars[start:end],
         body_types=Car.TYPES,
-        makes=makes,
+        makes=Car.MAKES,
         params=params)
+
     return render(request, 'carsapp/index.html', context)
 
 

@@ -72,7 +72,7 @@
                      <select class="c-select" name='body_type'>
                       <option selected value="">Any</option>
                       {% for body_type in body_types %}
-                        <option value={{body_type}} {% if body_type == params.body_type %} selected {% endif %}>{{body_type}}</option>
+                        <option value="{{body_type}}" {% if body_type == params.body_type %} selected {% endif %}>{{body_type}}</option>
                       {% endfor %}
                     </select>
                 </div>
@@ -81,7 +81,7 @@
                      <select class="c-select" name='make'>
                       <option selected value="">Any</option>
                       {% for make in makes %}
-                        <option value={{make}} {% if make == params.make %} selected {% endif %}>{{make}}</option>
+                        <option value="{{make}}" {% if make == params.make %} selected {% endif %}>{{make}}</option>
                       {% endfor %}
                     </select>
                 </div>
