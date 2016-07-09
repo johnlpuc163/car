@@ -6,7 +6,7 @@ from carsapp.models import Car
 def index(request):
     params = _parse_request(request)
     page = (int(params['page']) - 1) if params['page'] else 0
-    limit = int(params['limit']) if params['limit'] else 20
+    limit = int(params['limit']) if params['limit'] else 21
     start = page * limit
     end = start + limit
 
