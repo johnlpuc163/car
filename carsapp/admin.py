@@ -11,6 +11,7 @@ class CarAdmin(admin.ModelAdmin):
                     'thumbnail',
                     'platform_name',
                     'make',
+                    'body_type',
                     'model',
                     'price',
                     'year',

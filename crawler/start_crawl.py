@@ -1,3 +1,4 @@
+#!env/bin/python
 import sys
 sys.path.append('./')
 from lib.config import create_app

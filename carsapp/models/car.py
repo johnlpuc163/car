@@ -21,6 +21,7 @@ class Car(BaseModel):
     image_url = models.CharField(max_length=200, null=True)
     product_id = models.CharField(max_length=200, null=True)
     platform_name = models.CharField(max_length=200, null=True)
+    body_type = models.CharField(max_length=200, null=True)
     platform = models.ForeignKey(Platform, on_delete=models.CASCADE, null=True)
 
     @property
