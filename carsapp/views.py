@@ -11,7 +11,6 @@ def index(request):
     end = start + limit
 
     cars = Car.objects.all()
-    print params
     if params['make']:
         cars = cars.filter(make=params['make'])
         print params['make'], cars.count()
