@@ -115,7 +115,7 @@ class VroomCrawler(BaseCrawler):
     @classmethod
     def _parse_car(cls, raw):
         return dict(
-            make=raw['Make'],
+            make=raw['Make'].lower(),
             model=raw['Model'],
             trim=raw['Trim'],
             price=float(raw['Price']),
@@ -156,7 +156,7 @@ class BeepiCrawler(BaseCrawler):
     @classmethod
     def _parse_car(cls, raw):
         return dict(
-            make=raw['makeName'],
+            make=raw['makeName'].lower(),
             model=raw['modelName'],
             trim=raw['trim'],
             price=float(raw['salePrice']),

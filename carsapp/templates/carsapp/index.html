@@ -1,120 +1,136 @@
-{% load staticfiles %}
-
 <!DOCTYPE html>
-<html>
-<head>
-    <style>
-        .new_logo{
-          width: 150px;
-          height: 100px;
-          margin-left: 40px;
-          margin-top: 30px;
-        }
-    </style>
-  <title>zhibogame</title>
-  <link href="/assets/zhibogame_logo-924de9d9ba6fa40de70787ae1e201754.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-  <link data-turbolinks-track="true" href="/assets/application-4fe726a8f5c9f30085437886a0e63062.css" media="all" rel="stylesheet" />
-  <script data-turbolinks-track="true" src="/assets/application-021a93d581524a2def3d799b2f33250e.js"></script>
+<html lang="en">
 
-  <link rel="stylesheet" type="text/css" href="http://staticlive.douyutv.com/common/douyu/style/common.css?v=2903.2" />
-  <link rel="stylesheet" type="text/css" href="http://staticlive.douyutv.com/common/douyu/style/xarth_channel_sass.css?v=2903.2" />
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
 
-  <meta content="authenticity_token" name="csrf-param" />
-<meta content="t3Z+GqL5OcX+ziMJHyKwbSCbyrjAVvnwJLm7z/WTUOY=" name="csrf-token" />
-</head>
-<body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+</script>
 
+  </head>
 
-
-<div class="channel-main">
-  <script type="text/javascript" src="http://staticlive.douyutv.com/common/js/jquery.tinyscrollbar.min.js"></script>
-
-
-
-  <div class="g_sd51" style="height:1080px;" id="left_col">
-
-  <div id="large_nav">
-    <div class="content left" >
-
-      <div id="left_big_show">
-        <div class="scrollbar">
-          <div class="track">
-          </div>
+  <body>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-static-top navbar-dark bg-inverse">
+              <a class="navbar-brand" href="#">Cars</a>
+              <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+              </ul>
+            </nav>
         </div>
-        <div class="viewport">
-          <div class="overview">
+    </div>
 
-            <p class="divider"></p>
-            <div class="nav_section" id="hotgame">
-              <h3 class="header01"></h3>
-              <div class="clearfix">
-                <div class="tagCont">
-                  <!-- <ul>
-                    {% for game in games %}
-                        <li><a  title="{{ game.name }}"  href="{% url 'rooms' game.id %}">{{ game.name }}</a></li>
-                    {% endfor %}
-                  </ul> -->
+    
+    <div class="container">
+      <div class="jumbotron" style="height: 250px;">
+        <div class="row">
+            <form>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-md-2 form-control-label">Year</label>
+                <div class="col-md-3">
+                  <input type="number" class="form-control" id="year_min" name="year_min" placeholder="Min" min="1900" max="2100" value="{{params.year_min}}">
+                </div>
+                <label for="inputEmail3" class="col-md-1 form-control-label">To</label>
+                <div class="col-md-3">
+                  <input type="number" class="form-control" id="year_max" name="year_max" placeholder="Max" min="1900" max="2100" value="{{params.year_max}}">
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div  class="left_footer">
-        <p class="divider"></p>
-        <ul>
-          <li><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA5MjU3MF8xNjQ1MDZfODAwMDkyNTcwXzJf" target="_blank"></a></li>
-          <li><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA5MjU3MF8xNjQ1MDFfODAwMDkyNTcwXzJf" target="_blank"></a></li>
-          <li><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA5MjU3MF8xNjQ1MDNfODAwMDkyNTcwXzJf" target="_blank"></a></li></ul>
-      </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-md-2 form-control-label">Price</label>
+                <div class="col-md-3">
+                  <input type="number" class="form-control" id="inputEmail3" name="price_min" min="0"placeholder="Min" value="{{params.price_min}}">
+                </div>
+                <label for="inputEmail3" class="col-md-1 form-control-label">To</label>
+                <div class="col-md-3">
+                  <input type="number" class="form-control" id="inputEmail3" name="price_max" min="0"placeholder="Max" value="{{params.price_max}}">
+                </div>
+              </div>
 
-    </div>
-  </div>
-  </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-md-2 form-control-label">Mileage</label>
+                <div class="col-md-3">
+                  <input type="number" class="form-control" id="inputEmail3" name="mileage_min" min="0"placeholder="Min" value="{{params.mileage_min}}">
+                </div>
+                <label for="inputEmail3" class="col-md-1 form-control-label">To</label>
+                <div class="col-md-3">
+                  <input type="number" class="form-control" id="inputEmail3" name="mileage_max" min="0"placeholder="Max" value="{{params.mileage_max}}">
+                </div>
+              </div>
+              
+            </div> <!--   div col 6  -->
 
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-md-3 form-control-label">Choose Type</label>
+                     <select class="c-select" name='body_type'>
+                      <option selected value="">Any</option>
+                      {% for body_type in body_types %}
+                        <option value={{body_type}} {% if body_type == params.body_type %} selected {% endif %}>{{body_type}}</option>
+                      {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-md-3 form-control-label">Choose Make</label>
+                     <select class="c-select" name='make'>
+                      <option selected value="">Any</option>
+                      {% for make in makes %}
+                        <option value={{make}} {% if make == params.make %} selected {% endif %}>{{make}}</option>
+                      {% endfor %}
+                    </select>
+                </div>
 
-
-  <div class="expandRight column" id="main_col">
-    <div class="content">
-      <div id="elem-mimiko-test" class="stretch js-columns-scroll scroll" style="top: 0px; bottom: 0px; visibility: visible;">
-        <div class="tse-scroll-content" style="right: 0px; width: 1340px; height: 979px;">
-          <div class="tse-content" style=" padding-right:0px;">
-
-            
-                <div class="player_column">
-                  <div class="editable editable01" id="broadcast_meta">
-                    <div class="info" style="padding-left:0;">
-                      <!-- <div class="title"> <span class="real_title js-title">{{ game_name }}</span> </div> -->
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-md-2 form-control-label">Page</label>
+                    <div class="col-md-3">
+                      <input type="number" class="form-control" id="page" name="page" placeholder="page" min="1" value="{{params.page}}">
+                    </div>
+                    <div class="col-md-3">
+                      <button type="submit" value="Submit" class="btn btn-primary">Filter Cars</button>
                     </div>
                   </div>
-                  <div class="items items01 clearfix" id="item_data"><ul>
-                        {% for car in cars %}
-                            <li>
-                                <a href="{{ car.product_url }}" target='_blank' class="list" title="{{ car.title }}">
-                                    <span class="img"><div style="background-image: url({{ car.image_url }});background-position: center center; background-size: cover; height: 180px; width: 320px;"/></div></span>
-                                    <div class="mes">
-                                        <h1 class="title">{{ car.title }}</h1>
-                                        <p class="moreMes">
-                                            <span class="view"></span><span class="nnt">{{ car.formated_mileage }} miles</span>
-                                            <span class="zbName"><em>{{ car.platform_name }}</em></span>
-                                        </p>
-                                    </div>
-                                    <i class="icon_live">正在直播</i>
-                                </a>
-                            </li>
-                        {% endfor %}
-                  </ul></div>
-                </div>
-            
 
-          </div>
-        </div>
+            </div> <!--   div col 6  -->
+
+            </form>
+        </div> <!--   div row  -->
       </div>
     </div>
-  </div>
-</div>
 
 
-</body>
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        {% for car in cars %}
+            <div class="col-md-4" style="height: 330px;">
+                <div class="card">
+                  <a href="{{ car.product_url }}">
+                    <div class="col-md-12"
+                style="background-image: url({{ car.image_url }});background-position: center center; background-size: cover; height: 180px;">
+                    </div>
+                  </a>
+                  <div class="card-block">
+                    <div class="col-md-12">
+                        </br>
+                        <h5 class="card-title">{{ car.title }}</h4>
+                    </div>
+                    <div class="col-md-6">{{ car.formated_mileage }} miles</div>
+                    <div class="col-md-6">${{ car.price|add:"0" }}</div>
+                  </div>
+                </div>
+            </div>
+        {% endfor %}
+      </div>
+    </div> <!-- /container -->
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+  </body>
 </html>

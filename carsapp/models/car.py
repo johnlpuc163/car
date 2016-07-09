@@ -11,6 +11,10 @@ class Platform(BaseModel):
 
 
 class Car(BaseModel):
+
+    TYPES = ('convertible', 'coupe', 'hatchback', 'minivan',
+             'sedan', 'suv', 'truck', 'wagon')
+
     make = models.CharField(max_length=200, null=True)
     model = models.CharField(max_length=200, null=True)
     trim = models.CharField(max_length=200, null=True)
