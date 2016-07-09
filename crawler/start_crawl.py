@@ -4,6 +4,9 @@ sys.path.append('./')
 from lib.config import create_app
 create_app('prod')
 
+import schedule
+import time
+
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
 from gevent import spawn
@@ -47,3 +50,7 @@ def run():
 
 if __name__ == "__main__":
     run()
+    schedule.every().day.do(run)
+    while True:
+        schedule.run_pending()
+        time.sleep(3600 * 2)

@@ -3,3 +3,4 @@ requests[security]==2.9.1
 gevent==1.0.1
 ujson==1.33
 ipython
+schedule
